@@ -19,7 +19,7 @@ Word Tiles supports changing settings via url query parameters. Settings are sto
 | query parameter | valid values             | default | description                                                                                                     |
 | --------------- | ------------------------ | ------- | --------------------------------------------------------------------------------------------------------------- |
 | lang            | [en, sv]                 | en      | Game language                                                                                                   |
-| cefr            | [A1, A2, B1, B2, C1, C2] | B2      | Highest word list difficulty to use. Note that a value of `B1` would mean to use words from `A1`, `A2` and `A3` |
+| cefr            | [A1, A2, B1, B2, C1, C2] | B2      | Highest word list difficulty to use. Note that a value of `B1` would mean to use words from `A1`, `A2` and `B1` |
 | wordLength      | 2 < wordLength < 15      | 5       | Length of the word to guess                                                                                     |
 | maxAttempts     | 0 < maxAttempts < 100    | 6       | Max number of attempts before game over                                                                         |
 
