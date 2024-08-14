@@ -1,0 +1,27 @@
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+}
+
+.mosaic {
+  align-self: flex-start;
+  margin: 1.5rem 0;
+}
+
+.bottom-sticky {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+
+  & > :first-child {
+    background-color: var(--md-sys-color-surface-variant);
+    padding: 1rem 0;
+  }
+}
+
+.App > span {
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,78 @@
+$size: 3rem;
+$padding: 0.25rem;
+$border-size: 0.2rem;
+
+.key {
+  position: relative;
+  box-sizing: border-box;
+  height: $size + $padding;
+  line-height: $size - $padding - $border-size * 2;
+  padding: $padding;
+  border-radius: 0.5rem;
+  text-align: center;
+  border: $border-size solid transparent;
+  user-select: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, color 0.15s ease;
+
+  span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+  }
+
+  @each $state, $col-bg, $col-fg, $col-bg-active,
+    $col-fg-active
+      in (
+        (
+          "default",
+          var(--md-sys-color-surface-variant),
+          var(--md-sys-color-on-surface-variant),
+          var(--md-sys-color-on-surface-variant),
+          var(--md-sys-color-surface-variant)
+        ),
+        (
+          "correct",
+          var(--md-sys-color-green-container),
+          var(--md-sys-color-on-green-container),
+          var(--md-sys-color-green),
+          var(--md-sys-color-on-green)
+        ),
+        (
+          "position",
+          var(--md-sys-color-yellow-container),
+          var(--md-sys-color-on-yellow-container),
+          var(--md-sys-color-yellow),
+          var(--md-sys-color-on-yellow)
+        ),
+        (
+          "incorrect",
+          var(--md-sys-color-surface),
+          var(--md-sys-color-on-surface),
+          var(--md-sys-color-on-surface),
+          var(--md-sys-color-surface)
+        )
+      )
+  {
+    &.state-#{$state} {
+      background-color: $col-bg;
+      color: $col-fg;
+
+      &:hover {
+        @media (hover: hover) and (pointer: fine) {
+          border: $border-size solid $col-bg-active;
+        }
+      }
+
+      &:focus {
+        border: $border-size solid $col-bg-active;
+      }
+
+      &:active {
+        background-color: $col-bg-active;
+        color: $col-fg-active;
+      }
+    }
+  }
+}

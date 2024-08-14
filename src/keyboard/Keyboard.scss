@@ -1,0 +1,35 @@
+$key-gap: 0.25rem;
+
+.keyboard {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--md-sys-color-surface);
+  width: 100%;
+  padding: $key-gap;
+  padding-top: 0.5rem;
+  gap: $key-gap * 2;
+  overflow-x: auto;
+
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: $key-gap;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 100%;
+
+    @for $i from 1 to 50 {
+      &.n-#{$i} > * {
+        flex-basis: 100% / $i;
+      }
+    }
+
+    &:last-child {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+    }
+  }
+}

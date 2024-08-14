@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Word Tiles</string>
+    <string name="title_activity_main">Word Tiles</string>
+    <string name="package_name">se.fzy.wordtiles</string>
+    <string name="custom_url_scheme">se.fzy.wordtiles</string>
+</resources>

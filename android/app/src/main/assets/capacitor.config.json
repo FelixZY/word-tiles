@@ -1,0 +1,6 @@
+{
+	"appId": "se.fzy.wordtiles",
+	"appName": "Word Tiles",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

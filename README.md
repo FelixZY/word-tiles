@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# Word Tiles
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple Wordle clone that I created a while back and promptly forgot about.
 
-## Available Scripts
+THIS PROJECT IS NOT BEING ACTIVELY MAINTAINED
 
-In the project directory, you can run:
+![Logo](./public/android-chrome-192x192.png)
 
-### `npm start`
+## Documentation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Word Tiles uses word lists separated based on [CEFR levels](https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions). By default, English (B2) is used but this can be changed to increase or reduce the challenge (see below).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Currently, Word Tiles supports English and Swedish.
 
-### `npm test`
+### Settings
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Word Tiles supports changing settings via url query parameters. Settings are stored in your browser's [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) so you don't have to provide the parameters more than once.
 
-### `npm run build`
+| query parameter | valid values             | default | description                                                                                                     |
+| --------------- | ------------------------ | ------- | --------------------------------------------------------------------------------------------------------------- |
+| lang            | [en, sv]                 | en      | Game language                                                                                                   |
+| cefr            | [A1, A2, B1, B2, C1, C2] | B2      | Highest word list difficulty to use. Note that a value of `B1` would mean to use words from `A1`, `A2` and `A3` |
+| wordLength      | 2 < wordLength < 15      | 5       | Length of the word to guess                                                                                     |
+| maxAttempts     | 0 < maxAttempts < 100    | 6       | Max number of attempts before game over                                                                         |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Dark Mode
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Light/dark mode is based on your browser's [`prefers-color-scheme`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshot
 
-### `npm run eject`
+![App Screenshot](./word-tiles-screen.webp)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contributing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is not being actively maintained and does not currently accept contributions.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Please fork the project if you wish to make personal changes.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
+[MIT](https://choosealicense.com/licenses/mit/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Word lists from the [Kelly Project](https://spraakbanken.gu.se/en/projects/kelly) are distributed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).

@@ -1,0 +1,107 @@
+$size: 3.75rem;
+$font-padding: 1rem;
+$border-size: 0.2rem;
+$transform-duration: 0.75s;
+$small-factor: 0.75;
+
+.tile {
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  transform: rotateX(0deg);
+  transform-style: preserve-3d;
+
+  width: $size;
+  height: $size;
+  font-size: $size - $font-padding;
+  line-height: $size - 2 * $border-size;
+
+  .word.small &,
+  small & {
+    width: $size * $small-factor;
+    height: $size * $small-factor;
+    font-size: ($size * $small-factor - $font-padding * $small-factor);
+    line-height: $size * $small-factor - 2 * $border-size * $small-factor;
+  }
+
+  &.flip {
+    transform: rotateX(180deg);
+  }
+
+  @for $i from 1 to 50 {
+    &:nth-child(#{$i}n) {
+      transition: transform
+        $transform-duration
+        ease
+        #{($i - 1) *
+        $transform-duration *
+        0.5};
+    }
+  }
+
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: border 0.25s linear;
+    border: $border-size solid transparent;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Safari */
+
+    @each $state, $col-bg,
+      $col-fg
+        in (
+          (
+            "default",
+            var(--md-sys-color-surface-variant),
+            var(--md-sys-color-on-surface-variant)
+          ),
+          (
+            "correct",
+            var(--md-sys-color-green-container),
+            var(--md-sys-color-on-green-container)
+          ),
+          (
+            "position",
+            var(--md-sys-color-yellow-container),
+            var(--md-sys-color-on-yellow-container)
+          ),
+          (
+            "incorrect",
+            var(--md-sys-color-surface),
+            var(--md-sys-color-on-surface)
+          )
+        )
+    {
+      &.state-#{$state} {
+        background-color: $col-bg;
+        color: $col-fg;
+      }
+    }
+    @each $state,
+      $border-color
+        in (
+          ("none", transparent),
+          ("focus", var(--md-sys-color-outline)),
+          ("valid", var(--md-sys-color-green)),
+          ("invalid", var(--md-sys-color-red))
+        )
+    {
+      &.border-#{$state} {
+        border-color: $border-color;
+      }
+    }
+  }
+
+  .front {
+    transform: rotateX(0deg);
+  }
+
+  .back {
+    transform: rotateX(180deg);
+  }
+}
